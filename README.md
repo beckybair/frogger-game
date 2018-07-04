@@ -1,3 +1,9 @@
+To Play the game
+
+Click this link:  https://beckybair.github.io/frogger-game/
+Or clone this repo / download the zip and open the index.html file.
+
+
 frontend-nanodegree-arcade-game
 ===============================
 
