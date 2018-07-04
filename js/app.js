@@ -48,7 +48,8 @@ class Player extends Entity {
     super.update();
     if (this.isOutY && !this.moving && !this.won) {
       alert('You Won!');
-      this.win = true;
+      this.won = true;
+      this.pReset();
     }
   }
 
@@ -77,6 +78,18 @@ class Player extends Entity {
 
     this.moving = true;
   }
+
+  pReset() {
+    if (player.won) {
+        if (confirm('Would you like to play again?')) {
+            this.x = 2;
+            this.y = 5;
+            this.won = false;
+        } else {
+
+        }
+    } 
+  }
 }
 
 // Enemies our player must avoid
@@ -84,7 +97,7 @@ class Enemy extends Entity {
   constructor(x, y) {
     super();
     this.sprite += 'enemy-bug.png';
-    this.x = x;
+    this.x = x + Math.floor(Math.random() * ((0-4)+1) + 4);;
     this.y = y;
   }
 
@@ -96,10 +109,13 @@ class Enemy extends Entity {
     // all computers.
     super.update();
 
+    let speed = Math.floor((Math.random() * 15) +1);
+    speed = speed * dt * 0.25;
+
     if (this.isOutX) {
       this.x = -1;
     } else {
-      this.x += dt;
+      this.x += speed;
     }
   }
 }
