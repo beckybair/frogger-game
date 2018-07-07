@@ -2,6 +2,8 @@
 * App JavaScript file
 */
 
+'use strict';
+
 const explosion = 'images/explosion.png';
 
 let playerImg = 'images/char-horn-girl.png';
@@ -182,12 +184,10 @@ function showModalWindow(header) {
   if (header === 'change') {
     modalTitle.innerHTML = 'Change your Character';
     modalMessage.innerHTML = 'Select a Character to Play';
-  } 
-  else if (header === 'won') {
+  } else if (header === 'won') {
     modalTitle.innerHTML = 'WooHoo!!';
     modalMessage.innerHTML = 'You Won! Play Again?';
-  }
-  else {
+  } else {
     modalTitle.innerHTML = 'Welcome to BABs Bug Out Game!';
     modalMessage.innerHTML = 'Select a Character to Play';
   }

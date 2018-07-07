@@ -17,7 +17,9 @@ Move your character with the keyboard arrow keys.
 
 To change your character image, just click the Change Character button.  Be warned, this will reset the game.
 
-Click here to play the game:  https://beckybair.github.io/frogger-game/
+Click here to play the game online:  https://beckybair.github.io/frogger-game/
+
+To play the game locally, either clone or download the zip file.  Once on your computer, navigate to the location you saved it.  Open the folder and double click the index.html file.  This will open the game locally in your browser.
 
 ## Dependecies
 
