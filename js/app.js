@@ -1,5 +1,18 @@
+/*
+* App JavaScript file
+*/
+
 const explosion = 'images/explosion.png';
-const playerImg = 'images/char-horn-girl.png';
+
+let playerImg = 'images/char-horn-girl.png';
+let life = [];
+
+//   - .modal-title
+let modalTitle = document.getElementById('modalTitle');
+
+//   - .modal-body
+let modalMessage = document.getElementById('modalMessage');
+let mBody = '';
 
 // Main entity class both Player and Enemy will share
 class Entity {
@@ -47,9 +60,8 @@ class Player extends Entity {
     // all computers.
     super.update();
     if (this.isOutY && !this.moving && !this.won) {
-      alert('You Won!');
+      showModalWindow('won');
       this.won = true;
-      this.pReset();
     }
   }
 
@@ -81,14 +93,10 @@ class Player extends Entity {
 
   pReset() {
     if (player.won) {
-        if (confirm('Would you like to play again?')) {
-            this.x = 2;
-            this.y = 5;
-            this.won = false;
-        } else {
-
-        }
-    } 
+      this.x = 2;
+      this.y = 5;
+      this.won = false;
+    }
   }
 }
 
@@ -97,7 +105,7 @@ class Enemy extends Entity {
   constructor(x, y) {
     super();
     this.sprite += 'enemy-bug.png';
-    this.x = x + Math.floor(Math.random() * ((0-4)+1) + 4);;
+    this.x = x + Math.floor(Math.random() * (0 - 4 + 1) + 4);
     this.y = y;
   }
 
@@ -109,7 +117,7 @@ class Enemy extends Entity {
     // all computers.
     super.update();
 
-    let speed = Math.floor((Math.random() * 15) +1);
+    let speed = Math.floor(Math.random() * 15 + 1);
     speed = speed * dt * 0.25;
 
     if (this.isOutX) {
@@ -138,3 +146,120 @@ document.addEventListener('keyup', function(e) {
 
   player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// Select Char image
+function selectChar(pick) {
+  switch (pick) {
+    case 'boy':
+      playerImg = 'images/char-boy.png';
+      break;
+    case 'cat':
+      playerImg = 'images/char-cat-girl.png';
+      break;
+    case 'horn':
+      playerImg = 'images/char-horn-girl.png';
+      break;
+    case 'pink':
+      playerImg = 'images/char-pink-girl.png';
+      break;
+    case 'princess':
+      playerImg = 'images/char-princess-girl.png';
+      break;
+    default:
+      break;
+  }
+}
+
+document.getElementById('changeChar').addEventListener('click', function(e) {
+  showModalWindow('change');
+});
+
+// Setup Modal and display
+function showModalWindow(header) {
+  const letsPlay = document.getElementById('letsPlay');
+  const charList = document.getElementById('char-list');
+
+  if (header === 'change') {
+    modalTitle.innerHTML = 'Change your Character';
+    modalMessage.innerHTML = 'Select a Charactor to Play';
+  } 
+  else if (header === 'won') {
+    modalTitle.innerHTML = 'WooHoo!!';
+    modalMessage.innerHTML = 'You Won! Play Again?';
+  }
+  else {
+    modalTitle.innerHTML = 'Welcome to BABs Bug Out Game!';
+    modalMessage.innerHTML = 'Select a Character to Play';
+  }
+
+  charList.addEventListener('click', function(e) {
+    var sel = e.target.parentElement.id;
+    selectChar(sel);
+
+    // highlight char selected - TODO unhighlight when a different one is chosen
+    //e.target.classList.add('selected');
+  });
+
+  letsPlay.addEventListener('click', function() {
+    player.sprite = playerImg;
+    player.pReset();
+  });
+
+  $('#showModal').modal();
+}
+
+//  TODO:  at a later update
+// Create Counters
+//    - total number of moves / tries
+//let totalMoves = 0;
+
+// Reset stars
+/* function resetLife() {
+  // reset char life array to 3
+  life = [playerImg, playerImg, playerImg];
+}
+
+// Reset counters
+function resetCounters() {
+  // totalMoves
+  totalMoves = 0;
+  // movesSpan
+  movesSpan[0].innerHTML = totalMoves.toString();
+  // pairs
+  pairs = 0;
+} */
+
+/* // Track number of moves
+function moves() {
+  totalMoves++;
+  movesSpan[0].innerHTML = totalMoves.toString();
+  // start timer on first move
+  if (totalMoves == 1) {
+    resetTimer();
+    startTimer();
+  }
+
+  checkStars();
+}
+ */
+// Track stars based on number of moves
+/* function checkStars() {
+  // Number of stars
+  // Starts with all 3 stars - up to 8 moves
+  if (totalMoves > 8 && totalMoves <= 16) {
+    //   - 9-10 moves = 2 stars
+    star[2].classList.remove('fa-star');
+    star[2].classList.add('fa-star-o');
+    modalTitle.innerHTML = 'WooHoo! Memory Managed!';
+  } else if (totalMoves === 17 && totalMoves <= 30) {
+    //   - 11-12 moves = 1 star
+    star[1].classList.remove('fa-star');
+    star[1].classList.add('fa-star-o');
+    modalTitle.innerHTML = 'Cool! Memory is Good!';
+  } else if (totalMoves > 30) {
+    //   - >12 moves = all empty stars
+    star[0].classList.remove('fa-star');
+    star[0].classList.add('fa-star-o');
+    modalTitle.innerHTML = 'Good, but you could do better!';
+  }
+} */

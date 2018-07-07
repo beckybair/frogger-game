@@ -90,7 +90,7 @@ var Engine = (function(global) {
           player.x = 2;
           player.y = 5;
           player.sprite = playerImg;
-        }, 300);
+        }, 250);
       }
     });
   }
@@ -176,8 +176,12 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
   function reset() {
-    // noop
-    
+    // beginning game
+    showModalWindow();
+    // TODO: reset # of Chars remaining
+    //resetStars();
+    // TODO: reset counters
+    //resetCounters();
   }
 
   /* Go ahead and load all of the images we know we're going to need to

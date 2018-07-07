@@ -1,10 +1,48 @@
 body {
   background-color: #3b404e;
   text-align: center;
+  font-family: 'Coda', cursive;
+}
+
+header {
+    color: #fff;
 }
 
 h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   text-align: center;
-  color: #fff;
 }
 
+/*
+ * Styles for the Modal
+ */
+
+.modal-body {
+  list-style: none;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+li img {
+  width: 80px;
+}
+
+li img:hover {
+  transform: scale(1.5);
+}
+
+/* Currently not used
+ * to be used at a later update
+.selected {
+  box-shadow: 0 0 20px rgb(42, 42, 49);
+}
+ */
