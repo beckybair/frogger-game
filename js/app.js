@@ -181,7 +181,7 @@ function showModalWindow(header) {
 
   if (header === 'change') {
     modalTitle.innerHTML = 'Change your Character';
-    modalMessage.innerHTML = 'Select a Charactor to Play';
+    modalMessage.innerHTML = 'Select a Character to Play';
   } 
   else if (header === 'won') {
     modalTitle.innerHTML = 'WooHoo!!';
