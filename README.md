@@ -1,12 +1,29 @@
-To Play the game
+# Frogger Clone Project
 
-Click this link:  https://beckybair.github.io/frogger-game/
-Or clone this repo / download the zip and open the index.html file.
+## Table of Contents
 
+* [Instructions](#instructions)
+* [Dependecies](#dependecies)
+* [Contributing](#contributing)
 
-frontend-nanodegree-arcade-game
-===============================
+## Instructions
+_How to play_
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+BABs Bug Out Game is a simple game of moving your character from the bottom of the screen to the top while avoiding the bugs.  
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Select your character image and then play!
+
+Move your character with the keyboard arrow keys.
+
+To change your character image, just click the Change Character button.  Be warned, this will reset the game.
+
+Click here to play the game:  https://beckybair.github.io/frogger-game/
+
+## Dependecies
+
+* Bootstrap 4.1 (CDN links used - CSS and JS)
+* Google Fonts Coda (Google link used)
+
+## Contributing
+
+Please contact me if you would like to contribute any ideas to make this a great game.
